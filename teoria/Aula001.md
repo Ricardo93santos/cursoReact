@@ -81,6 +81,6 @@ Time:        2.375 s</pre>
 </ul>
 <p>
   O resultado nos dois casos será:
-  ![alt text](image-1.png)
+  <img src="https://github.com/Ricardo93santos/cursoReact/assets/69050591/b34aa0e7-14aa-4cde-9461-5e90a7a68765" width = "350px">
 </p>
 
