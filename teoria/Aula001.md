@@ -79,8 +79,6 @@ Time:        2.375 s</pre>
   </pre>
   </li>
 </ul>
-<p>
-  O resultado nos dois casos será:
+<p>O resultado nos dois casos será:</p>
   <img src="https://github.com/Ricardo93santos/cursoReact/assets/69050591/b34aa0e7-14aa-4cde-9461-5e90a7a68765" width = "350px">
-</p>
 
