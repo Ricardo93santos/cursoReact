@@ -1,0 +1,13 @@
+body{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #224c71;
+  color: #b5b0b0;
+}
+
+.listItems{
+  margin-top: 15px;
+  color: #fff;
+  text-transform: uppercase;
+}
