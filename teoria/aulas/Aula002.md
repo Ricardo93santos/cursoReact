@@ -1,6 +1,6 @@
 <h2>Onde usar o React</h2>
 <p>O React é uma biblioteca JavaScript usada para renderizar interfaces de usuários (UI). Que é formada por qualquer parte da aplicação, como um botão, texto ou imagens. O React permite a combinação desses elementos em componentes, que pode ser reutilizados em qualquer parte de nossa aplicação.</p>
-<p>O react é geralmente usadao na página toda, onde em uma 'div', com id ou class especifico, será usado para gerar todos os scripts atravez da importação do ReactDOM, em um arquivo 'index.js', que vai renderisar o conteudo na div. Ou o React pode ser usado em locias específicos da página, como um menu, uma section, etc e adicionar o restante dos elementos do site, seja HTML, CSS ou JavaScript puro, no arquivo 'index.html'.</p>
+<p>O React é geralmente usado na página toda, onde em uma 'div', com id ou class especifico, será usado para gerar todos os scripts atravez da importação do ReactDOM, em um arquivo 'index.js', que vai renderisar o conteudo na div. Ou o React pode ser usado em locias específicos da página, como um menu, uma section, etc e adicionar o restante dos elementos do site, seja HTML, CSS ou JavaScript puro, no arquivo 'index.html'.</p>
 
 <ul>
   <li>Inserindo React em uma única div
@@ -134,4 +134,15 @@ __________________________________
     // ...
   }</pre>
   Quando um componente filho precisa de alguns dados de um pai, passe-os por 'props', queserá visto na aula 03, em vez de definições de aninhamento.
+</p>
+<p>Além dos componentes de função, no React também usandos os <code>componentes de classe</code>, que são componentes que possuem um alto nível de poder dentro da aplicação, pois além de gerenciar o próprio estado, herdam os chamados métodos de clico de vida do React, lidam com partes lógicas da aplicação e manipulam eventos através de métodos que podem ser invocados em qualquer lugar do componente ou em seus filhos. Eles são mais comlexos e oferecem mais funcionalidade em comparação com componentes de função.
+Para definir um <code>class component</code>, a classe precisa estender React.Component
+<pre>
+class Welcome extends React.Component {
+  render() {
+    return &#60;h1>Olá, {this.props.name}&#60;/h1>;
+  }
+}
+</pre>
+O método <code>render()</code> é obrigatório em um componente de classe, sendo responsável por descrever o que será exibido na tela, ele retorna o código JSX, ele não recebe nenum argumento e é chamado automaticamente pelo React.Embora o método <code>render()</code> seja chamado, isso não significa necessariamente que o DOM será atualizado. O React usa um processo chamado reconciliação para determinar quais partes do DOM precisam ser alteradas.
 </p>
