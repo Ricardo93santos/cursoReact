@@ -133,7 +133,7 @@ __________________________________
   function Profile() {
     // ...
   }</pre>
-  Quando um componente filho precisa de alguns dados de um pai, passe-os por 'props', queserá visto na aula 03, em vez de definições de aninhamento.
+  Quando um componente filho precisa de alguns dados de um pai, passe-os por 'props', queserá visto na aula 04, em vez de definições de aninhamento.
 </p>
 <p>Além dos componentes de função, no React também usandos os <code>componentes de classe</code>, que são componentes que possuem um alto nível de poder dentro da aplicação, pois além de gerenciar o próprio estado, herdam os chamados métodos de clico de vida do React, lidam com partes lógicas da aplicação e manipulam eventos através de métodos que podem ser invocados em qualquer lugar do componente ou em seus filhos. Eles são mais comlexos e oferecem mais funcionalidade em comparação com componentes de função.
 Para definir um <code>class component</code>, a classe precisa estender React.Component
