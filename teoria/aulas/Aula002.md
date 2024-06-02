@@ -146,3 +146,90 @@ class Welcome extends React.Component {
 </pre>
 O método <code>render()</code> é obrigatório em um componente de classe, sendo responsável por descrever o que será exibido na tela, ele retorna o código JSX, ele não recebe nenum argumento e é chamado automaticamente pelo React.Embora o método <code>render()</code> seja chamado, isso não significa necessariamente que o DOM será atualizado. O React usa um processo chamado reconciliação para determinar quais partes do DOM precisam ser alteradas.
 </p>
+
+<h2>Importando e Exportando Componentes</h2>
+<p>Como visto os componentes React podem ser criados no mesmo arquivo raiz, como exemplo <code>App.js</code>, mas isso é mais viável quando nosso sistema é pequeno e não temos muitos componentes para serem criados.</p>
+<p>Muitos componentes criados em um núnico arquivo vai dificultar na manutenção e na leitura docódigo. Dessa forma podemos separar os componentes em cada arquivo, exporta-los e importa-los no arquivo raiz.</p>
+<p>No exemplo a seguir nossos componentes, <code>Gallery()</code> e <code>Profile()</code> estão em uma arquivo raiz chamado <code>App.js</code>.</p>
+<pre>
+  function Profile() {
+  return (
+    &#60;img
+      src="https://i.imgur.com/MK3eW3As.jpg"
+      alt="Katherine Johnson"
+    />
+  );
+}
+export default function Gallery() {
+  return (
+    &#60;section>
+      &#60;h1>Amazing scientists</h1>
+      &#60;Profile />
+      &#60;Profile />
+      &#60;Profile />
+    &#60;/section>
+  );
+}
+</pre>
+<p>Faz sentido mover <code>Gallery()</code> e <code>Profile()</code> do arquivo do componente raiz. Isso os tornará mais modulares e reutilizáveis ​​em outros arquivos. Para isso devemos seguir três etapas:</p>
+<ul>
+  <li>Crie um novo arquivo JS para colocar os componentes.</li>
+  <li>Exporte seu componente de função desse arquivo (usando exportações padrão ou nomeadas).</li>
+  <li>Importe-o no arquivo onde você usará o componente (usando a técnica correspondente para importar exportações padrão ou nomeadas).</li>
+</ul>
+<p>Aqui ambos Profile foram Gallery movidos App.js para um novo arquivo chamado Gallery.js. Agora você pode mudar App.js para importar Gallery de Gallery.js:</p>
+<pre>Arquivo App.js
+import Gallery from './Gallery.js';
+export default function App() {
+  return (
+    <>
+      &#60;Gallery />
+      &#60;Gallery />
+    &#60;/>
+  );
+}</pre>
+<pre>Arquivo Gallery.js
+  function Profile() {
+  return (
+    &#60;img
+      src="https://i.imgur.com/MK3eW3As.jpg"
+      alt="Katherine Johnson"
+    />
+  );
+}
+export default function Gallery() {
+  return (
+    &#60;section>
+      &#60;h1>Amazing scientists</h1>
+      &#60;Profile />
+      &#60;Profile />
+      &#60;Profile />
+    &#60;/section>
+  );
+}</pre>
+<p>Observe como este exemplo está dividido em dois arquivos componentes agora:
+  <ol>
+    <li>Gallery.js:
+      <ul>
+        <li>Define o Profilecomponente que só é usado dentro do mesmo arquivo e não é exportado.</li>
+        <li>Exporta o Gallerycomponente como uma exportação padrão.</li>
+      </ul>
+    </li>
+    <li>App.js:
+      <ul>
+        <li>Importa Gallerycomo uma importação padrão do Gallery.js.</li>
+        <li>Exporta o Appcomponente raiz como uma exportação padrão.</li>
+      </ul>
+    </li>
+  </ol>
+</p>
+<h3>Exportações padrão vs nomeadas</h3>
+<p>Existem duas maneiras principais de exportar valores com JavaScript: exportações padrão e exportações nomeadas. Até agora, nossos exemplos usaram apenas exportações padrão. Mas você pode usar um ou ambos no mesmo arquivo. Um arquivo não pode ter mais de uma exportação padrão , mas pode ter quantas exportações nomeadas desejar.</p>
+<img src="img/exportExemple.png" style="width:100%">
+<p>A forma como você exporta seu componente determina como você deve importá-lo. Você receberá um erro se tentar importar uma exportação padrão da mesma forma que faria com uma exportação nomeada! Este gráfico pode ajudá-lo a acompanhar:</p>
+<img src="img/sintaxExport.png" style="width:100%">
+</p>
+<p>Ao escrever uma importação padrão , você pode colocar qualquer nome que desejar depois de <code>import</code>. Por exemplo, você poderia escrever <code>import Banana from './Button.js</code> em vez disso e ainda forneceria a mesma exportação padrão. Em contraste, com importações nomeadas, o nome tem de corresponder em ambos os lados. É por isso que são chamadas de importações nomeadas!</p>
+<p>As pessoas costumam usar exportações padrão se o arquivo exportar apenas um componente e usar exportações nomeadas se exportar vários componentes e valores. Independentemente do estilo de codificação de sua preferência, sempre dê nomes significativos às funções dos componentes e aos arquivos que os contêm. Componentes sem nomes, como export default () => {}, são desencorajados porque dificultam a depuração.</p>
+
+<h3>Exportando e importando vários componentes do mesmo arquivo</h3>
