@@ -168,3 +168,103 @@ export default function Gallery() {
 <p>As pessoas costumam usar exportações padrão se o arquivo exportar apenas um componente e usar exportações nomeadas se exportar vários componentes e valores. Independentemente do estilo de codificação de sua preferência, sempre dê nomes significativos às funções dos componentes e aos arquivos que os contêm. Componentes sem nomes, como export default () => {}, são desencorajados porque dificultam a depuração.</p>
 
 <h3>Exportando e importando vários componentes do mesmo arquivo</h3>
+
+<p>Ainda usando como exemplo o nosso componente <code>Profile</code> no arquivo <code>Galerry.js</code>, se quisermos mostrar apenas um <code>Profile</code> em vez de uma galeria. Mas <code>Galerry.js</code> já possui uma exportação padrão e você não pode ter duas exportações padrão. Você pode criar um novo arquivo com uma exportação padrão ou adicionar uma exportação nomeada para <code>Profile</code>. Um arquivo pode ter apenas uma exportação padrão, mas pode ter inúmeras exportações nomeadas!</p>
+<p>
+Primeiro, exporte <code>Profile</code> usando <code>Galerry.js</code> uma exportação nomeada (sem a palavra-chave <code>default</code>):
+<pre>export function Profile() {
+  // ...
+}</pre>
+Em seguida, importe <code>Profile</code> de <code>Galerry.js</code> para <code>App.js</code> usando uma importação nomeada (com chaves):
+<pre>import { Profile } from './Gallery.js';</pre>
+Finalmente, renderize <code>&#60;Profile /></code> a partir do App componente:
+<pre>export default function App() {
+  return &#60;Profile />;
+}</pre>
+Agora <code>Galerry.js</code> contém duas exportações: uma <code>Galerry</code> exportação padrão e uma <code>Profile</code> exportação nomeada. <code>App.js</code> importa ambos.
+</p>
+<p>
+<pre>
+  Arquivo App.js
+    import Gallery from './Gallery.js';
+    import { Profile } from './Profile.js';
+    export default function App() {
+      return (
+        &#60;Profile />
+      );
+    }
+</pre>
+<pre>
+Arquivo Galerry.js
+  export function Profile() {
+    return (
+      &#60;img
+        src="https://i.imgur.com/QIrZWGIs.jpg"
+        alt="Alan L. Hart"
+      />
+    );
+  }
+  export default function Gallery() {
+    return (
+      &#60;section>
+        &#60;h1>Amazing scientists&#60;/h1>
+        &#60;Profile />
+        &#60;Profile />
+        &#60;Profile />
+      &#60;/section>
+    );
+  }
+</pre>
+Agora você está usando uma combinação de exportações padrão e nomeadas:
+<ol>
+  <li>Galerry.js
+    <ul>
+      <li>Exporta o Profile componente como uma exportação nomeada chamada Profile.</li>
+      <li>Exporta o Gallerycomponente como uma exportação padrão.</li>
+    </ul>
+  </li>
+  <li>App.js
+    <ul>
+      <li>Importa Profile como uma importação nomeada chamada Profile from Gallery.js.</li>
+      <li>Importa Gallery como uma importação padrão do Gallery.js.</li>
+      <li>Exporta o App componente raiz como uma exportação padrão.</li>
+    </ul>
+  </li>
+</ol>
+</p>
+<p>Mas para ficar menos confuso podemos separar Profile de Galerry, mantendo o Galery como exportação padrão e o Profile como nomeada:
+<pre>
+  Arquivo App.js
+    import Gallery from './Gallery.js';
+    import { Profile } from './Profile.js';
+    export default function App() {
+      return (
+        <>
+          &#60;Galerry />
+          &#60;Profile />
+        &#60;/>
+      );
+    }
+</pre>
+<pre>
+Arquivo Galerry.js
+  export default function Gallery() {
+    return (
+      &#60;section>
+        &#60;h1>Amazing scientists&#60;/h1>
+      &#60;/section>
+    );
+  }
+</pre>
+<pre>
+  Arquivo Profille
+    export function Profile() {
+      return (
+        &#60;img
+          src="https://i.imgur.com/QIrZWGIs.jpg"
+          alt="Alan L. Hart"
+        />
+      );
+    }
+</pre>
+</p>
