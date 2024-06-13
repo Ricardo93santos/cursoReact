@@ -1,0 +1,12 @@
+.card{
+  border: 1.5px solid #414040;
+  border-radius: 5px;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sportImg{
+  border-radius: 50%;
+}

@@ -3,8 +3,7 @@ import { getImgUrl } from './galery'
 export function Sport({ sport, size }) {
   return (
     <>
-      <img 
-        className="avatar"
+      <img className="sportImg"
         src={getImgUrl(sport)}
         alt={sport.sportName}
         width={size}
