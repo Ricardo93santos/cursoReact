@@ -19,7 +19,8 @@
       function Mailbox(props) {
         return (
           &#60div>
-            &#60h1>Hello!&#60/h1>            {props.unreadMessages.length > 0 &&
+            &#60h1>Hello!&#60/h1>
+              {props.unreadMessages.length > 0 &&
               &#60h2>
                 You have {props.unreadMessages.length} unread messages.
               &#60/h2>
