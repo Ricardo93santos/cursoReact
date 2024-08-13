@@ -1,0 +1,9 @@
+.toolbar{
+  display: flex;
+  flex-direction: column;
+  background-color: #515112;
+  width: 300px;
+  height: 120px;
+  align-items: center;
+  justify-content: space-evenly;
+}

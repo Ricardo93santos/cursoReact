@@ -10,7 +10,10 @@ export default function EffectButton({message, children}: EffectButtonProps) {
     alert(message)
   }
   return (
-    <button onClick={handleClick}>
+    <button onClick={e => {
+      e.stopPropagation();
+      handleClick();
+    }}>
       {children}
     </button>
   )
