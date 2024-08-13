@@ -1,7 +1,14 @@
 <h1>Como iniciar um projeto React</h1>
 
-<p>Para iniciar um projeto React, basta instalar o Node.js e o npm, após, devemos usar o comando no terminar <code>npm install -g create-react-app</code>, para instalar de forma global.</p>
-<p>Em seguida usamos o comando <code>npx create-react-app 'nome-da-pasta'</code>, para criar uma pasta que vai conter os arquivos para nosso programa React. <br>Caso já tenha criado uma pasta, basta estar no endereço da pasta do programa e usar o comando "npx create-react-app", seguido por um ponto (.), <code>"npx create-react-app ."</code>.</p>
+<p>
+Para iniciar um projeto React, basta instalar o Node.js e o npm, após, devemos usar o comando no terminar <code>npm install -g create-react-app</code>, para instalar de forma global.
+</p>
+<p>
+Em seguida usamos o comando <code>npx create-react-app 'nome-da-pasta'</code>, para criar uma pasta que vai conter os arquivos para nosso programa React. <br>Caso já tenha criado uma pasta, basta estar no endereço da pasta do programa e usar o comando "npx create-react-app", seguido por um ponto (.), <code>"npx create-react-app ."</code>.
+</p>
+<p>
+Caso seja necessário usar TypeScript para seu projeto, devemos criar o nosso programa React com o seguinte código: "npx create-react-app 'nome-da-pasta' --template typescript". Após a criação do projeto, você deve ver um arquivo tsconfig.json na raiz do diretório do projeto. Esse arquivo é gerado automaticamente e contém as configurações padrão para TypeScript.
+</p>
 <p>
 Após criarmos e configurarmos o ambiente pelo comando "npx create-react-app .", esse comando é usado para que o React prepare todo o ambiente de desenvolvimento, configurando o webpach e o Babel. Como React usa comandos <code>jsx</code>, como exemplo <code>const element = &#60;h1&#62;Hello, world!&#60;/h1&#62;;</code>, que não é lido pelo navegador, é necessário o uso do Babel, que pega o código jsx e converte em js, que é compreensivo pelo navegador. Além de gerar arquivos que contem uma pequena página dos desenvolverores React, que direciona para a página da documentação React.<br>
 Esses arquivos são js, css, html e imagens que são usadas para gerar o programa, além de conter um arquivo de teste e outro com os comandos React para iniciar o programa, testar, realizar build, e eject.
