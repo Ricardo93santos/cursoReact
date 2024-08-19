@@ -1,9 +1,20 @@
-.toolbar{
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.contener{
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  background-color: #515112;
   width: 300px;
-  height: 120px;
-  align-items: center;
-  justify-content: space-evenly;
+}
+.toolbar{
+  background-color: #515112;
+}
+.formStyle{
+  border: 2px, black, solid;
 }
